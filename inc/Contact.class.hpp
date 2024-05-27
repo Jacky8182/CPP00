@@ -1,14 +1,14 @@
 #ifndef CONTACT_CLASS_HPP
  #define CONTACT_CLASS_HPP
 
-# include "PhoneBook.class.hpp"
+ # include "PhoneBook.class.hpp"
 
-class Contact{
-
+class Contact
+{
 	private:
 		std::string _Name;
 		std::string _FirstName;
-		std::String _NickName;
+		std::string _NickName;
 		std::string _PhoneNumber;
 		std::string _DarkestSecret;
 
@@ -28,5 +28,4 @@ class Contact{
 		void		setDarkestSecret(const std::string &DarkestSecret);
 
 };
-
 #endif

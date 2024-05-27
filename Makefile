@@ -2,15 +2,15 @@ NAME			=	PhoneBook
 
 CC				=	c++
 
-CFLAGS			=	-Wall -Wextra -Werror -I ${PHONE_INC} -I ${CONTACT_INC} -std=c++98
+CFLAGS			=	-Wall -Wextra -Werror -I ${INC} -std=c++98
 
 RM				= rm -rf
 
-INC_FOLDER		=	./inc/
+PURPLE 			=	\033[10;95m
 
-PHONE_INC		= 	${INC_FOLDER}PhoneBook.class.hpp
+GREEN			=	\033[0;32m
 
-CONTACT_INC		=	${INC_FOLDER}Contact.class.hpp
+COLOUR_END		=	\033[0m
 
 SRC_PATH		=	src/
 
@@ -24,26 +24,32 @@ SRC_PHONEBOOK	=	PhoneBook/PhoneBook.class.cpp \
 
 OBJS_PATH		=	objs/
 
-OBJS 			=	$(addprefix ${OBJS_PATH}, ${SRC_MAIN:.cpp=.o}) \
-					$(addprefix ${OBJS_PATH}, ${SRC_CONTACT:.cpp=.o}) \
+OBJ				=	$(addprefix ${OBJS_PATH}, ${SRC_MAIN:.cpp=.o}) \
 					$(addprefix ${OBJS_PATH}, ${SRC_PHONEBOOK:.cpp=.o}) \
+					$(addprefix ${OBJS_PATH}, ${SRC_CONTACT:.cpp=.o}) \
+
+INC_FOLDER		=	./inc/
+
+INC				= 	${INC_FOLDER}PhoneBook.class.hpp \
+					${INC_FOLDER}Contact.class.hpp \
 
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${INC}
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	@echo "${GREEN}\33[2K\nCPP01 compiled\n${COLOUR_END}"
 
-
-${OBJS_PATH}%.o: ${SRC_PATH}%.cpp
-	mkdir -p ${dir @}
-	${CC} ${CFLAGS} -c $< -o $@
-
+${OBJS_PATH}%.o:	${SRC_PATH}%.cpp
+	@mkdir -p ${dir $@}
+	@${CC} ${CFLAGS} -c $< -o $@ && printf "\33[2K\rCompiling CPP01 : $@" 
+	
 clean:
-	${RM} ${OBJS}
+	@${RM} ${OBJS_PATH}
+	@echo "${GREEN}CPP01 cleaned\n${COLOUR_END}"
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
-re: fclean all
+re:	fclean all
 
 .PHONY: all clean fclean re
