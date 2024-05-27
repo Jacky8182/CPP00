@@ -3,9 +3,9 @@
 int	main(void)
 {
 	PhoneBook	repertory;
+	std::string answer;
 	int			CurrentContact;
 
-	std::string answer;
 	CurrentContact = 0;
 	while (1)
 	{
@@ -24,11 +24,13 @@ int	main(void)
 			}
 			else if (answer.compare("SEARCH") == 0)
 			{
-				// if (CurrentContact == 0)
-				// {
-				// 	std::cout << "Phonebook is empty" << std::endl;
-				// }
+				if (CurrentContact == 0)
+				{
+					std::cout << "Phonebook is empty" << std::endl;
+				}
 				repertory.PrintPhoneBook(MaxContact);
+				std::cout << "Enter the contact's index you're looking for: ";
+
 			}
 			else if (answer.compare("EXIT") == 0)
 			{

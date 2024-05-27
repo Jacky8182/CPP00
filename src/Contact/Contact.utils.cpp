@@ -100,7 +100,6 @@ int	Contact::AddDarkestSecret(std::string &Info)
 					if (isprint(*this->i) == 0)
 					{
 						std::cout << "Error, your darkest secret contains non printable and non alpha numeric characters" << std::endl;
-
 					}
 					else
 					{

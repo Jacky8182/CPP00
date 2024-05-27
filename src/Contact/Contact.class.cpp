@@ -1,7 +1,7 @@
 #include "PhoneBook.class.hpp"
 
-Contact::Contact() : _FirstName("John"), _LastName("Doe"), _NickName("Killer"),
-	_PhoneNumber("0631458260"), _DarkestSecret("Is dumb")
+Contact::Contact() : _FirstName(""), _LastName(""), _NickName(""),
+	_PhoneNumber(""), _DarkestSecret("")
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -14,12 +14,19 @@ Contact::~Contact()
 void Contact::ResetContactInfo()
 {
 	std::string Empty = "";
-
 	this->setFirstName(Empty);
 	this->setLastName(Empty);
 	this->setNickName(Empty);
 	this->setPhoneNumber(Empty);
 	this->setDarkestSecret(Empty);
+}
+void Contact::PrintInfo(const int CurrentContact) const
+{
+	std::cout << "|" << CurrentContact << "        |";
+	std::cout << this->getFirstName() << "         |    ";
+	std::cout << this->getLastName() << "     |  ";
+	std::cout << this->getNickName() << "       |" << std::endl;
+	std::cout << "-----------------------------------------" << std::endl;
 }
 
 int Contact::AddContact()

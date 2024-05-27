@@ -25,20 +25,21 @@ class Contact
 	std::string getPhoneNumber() const;
 	std::string getDarkestSecret() const;
 
-	void setFirstName(const std::string &FirstName);
-	void setLastName(const std::string &LastName);
-	void setNickName(const std::string &SurName);
-	void setPhoneNumber(const std::string &PhoneNumber);
-	void setDarkestSecret(const std::string &DarkestSecret);
+	void	setFirstName(const std::string &FirstName);
+	void 	setLastName(const std::string &LastName);
+	void 	setNickName(const std::string &SurName);
+	void 	setPhoneNumber(const std::string &PhoneNumber);
+	void 	setDarkestSecret(const std::string &DarkestSecret);
 
-	void ResetContactInfo();
+	void 	ResetContactInfo();
+	void	PrintInfo(const int CurrentContact) const;
 
-	int AddContact();
-	int AddFirstName(std::string &Info);
-	int AddLastName(std::string &Info);
-	int AddNickName(std::string &Info);
-	int AddPhoneNumber(std::string &Info);
-	int AddDarkestSecret(std::string &Info);
+	int 	AddContact();
+	int 	AddFirstName(std::string &Info);
+	int 	AddLastName(std::string &Info);
+	int 	AddNickName(std::string &Info);
+	int 	AddPhoneNumber(std::string &Info);
+	int 	AddDarkestSecret(std::string &Info);
 };
 
 #endif

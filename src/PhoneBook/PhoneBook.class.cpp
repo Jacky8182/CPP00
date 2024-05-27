@@ -19,10 +19,10 @@ void PhoneBook::PrintPhoneBook(int LastContact)
 	std::cout << "-----------------------------------------" << std::endl;
 	while (CurrentContact < LastContact)
 	{
-		std::cout << "|   " << CurrentContact << "   |   " ;
-		std::cout << this->contact[CurrentContact].getFirstName() << "    |    "; 
-		std::cout << this->contact[CurrentContact].getLastName() << "   |  " ;
-		std::cout << this->contact[CurrentContact].getNickName() << "  |" << std::endl;
+		std::cout << "|" << CurrentContact << "        |" ;
+		std::cout << this->contact[CurrentContact].getFirstName() << "         |    "; 
+		std::cout << this->contact[CurrentContact].getLastName() << "     |  " ;
+		std::cout << this->contact[CurrentContact].getNickName() << "       |" << std::endl;
 		std::cout << "-----------------------------------------" << std::endl;
 		++CurrentContact;
 	}
