@@ -1,26 +1,26 @@
 #include "PhoneBook.class.hpp"
 
-void setName(std::string &Name)
-{
-	this->_Name = Name;
-}
-
-void setFirstName(std::string &FirstName)
+void Contact::setFirstName(const std::string &FirstName)
 {
 	this->_FirstName = FirstName;
 }
 
-void setNickName(std::string &NickName)
+void Contact::setLastName(const std::string &LastName)
+{
+	this->_LastName = LastName;
+}
+
+void Contact::setNickName(const std::string &NickName)
 {
 	this->_NickName = NickName;
 }
 
-void setPhoneNumber(std::string &PhoneNumber)
+void Contact::setPhoneNumber(const std::string &PhoneNumber)
 {
 	this->_PhoneNumber = PhoneNumber;
 }
 
-void setDarkestSecret(std::string &DarkestSecret)
+void Contact::setDarkestSecret(const std::string &DarkestSecret)
 {
 	this->_DarkestSecret = DarkestSecret;
 }

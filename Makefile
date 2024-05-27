@@ -1,10 +1,16 @@
-NAME			=	PhoneBook
+NAME			=	phonebook
 
 CC				=	c++
 
-CFLAGS			=	-Wall -Wextra -Werror -I ${INC} -std=c++98
+CFLAGS			=	-Wall -Wextra -Werror -I ${INCLD_DIR} -g -std=c++98
 
-RM				= rm -rf
+RM 				=	rm -rf
+
+# **************************************************************************** #
+#                                                                              #
+#                                  COLORS                                      #
+#                                                                              #
+# **************************************************************************** #
 
 PURPLE 			=	\033[10;95m
 
@@ -12,39 +18,68 @@ GREEN			=	\033[0;32m
 
 COLOUR_END		=	\033[0m
 
-SRC_PATH		=	src/
+
+# **************************************************************************** #
+#                                                                              #
+#                                  SOURCES                                     #
+#                                                                              #
+# **************************************************************************** #
+
+SRC_PATH		= src/
 
 SRC_MAIN		=	main.cpp \
 
-SRC_CONTACT		=	Contact/Contact.class.cpp \
-						Contact/Contact.getter.cpp \
-						Contact/Contact.setter.cpp \
-
 SRC_PHONEBOOK	=	PhoneBook/PhoneBook.class.cpp \
 
-OBJS_PATH		=	objs/
+SRC_CONTACT		=	Contact/Contact.class.cpp \
+					Contact/Contact.getter.cpp \
+					Contact/Contact.setter.cpp \
+					Contact/Contact.utils.cpp \
 
-OBJ				=	$(addprefix ${OBJS_PATH}, ${SRC_MAIN:.cpp=.o}) \
-					$(addprefix ${OBJS_PATH}, ${SRC_PHONEBOOK:.cpp=.o}) \
-					$(addprefix ${OBJS_PATH}, ${SRC_CONTACT:.cpp=.o}) \
+# **************************************************************************** #
+#                                                                              #
+#                                  OBJECTS                                     #
+#                                                                              #
+# **************************************************************************** #
 
-INC_FOLDER		=	./inc/
+OBJ_PATH		=	objs/
 
-INC				= 	${INC_FOLDER}PhoneBook.class.hpp \
-					${INC_FOLDER}Contact.class.hpp \
+OBJ				=	$(addprefix ${OBJ_PATH}, ${SRC_MAIN:.cpp=.o}) \
+					$(addprefix ${OBJ_PATH}, ${SRC_PHONEBOOK:.cpp=.o}) \
+					$(addprefix ${OBJ_PATH}, ${SRC_CONTACT:.cpp=.o}) \
+
+
+
+# **************************************************************************** #
+#                                                                              #
+#                                  INCLUDES                                    #
+#                                                                              #
+# **************************************************************************** #
+
+INCLD_DIR		=	./inc/
+
+INCLD			=	$(INCLD_DIR)Contact.class.hpp \
+					${INCLD_DIR}PhoneBook.class.hpp \
+
+
+# **************************************************************************** #
+#                                                                              #
+#                                  RULES                                       #
+#                                                                              #
+# **************************************************************************** #
 
 all: ${NAME}
 
-${NAME}: ${OBJS} ${INC}
-	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+${NAME}: ${OBJ} ${INCLD}
+	@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 	@echo "${GREEN}\33[2K\nCPP01 compiled\n${COLOUR_END}"
 
-${OBJS_PATH}%.o:	${SRC_PATH}%.cpp
+${OBJ_PATH}%.o:	${SRC_PATH}%.cpp
 	@mkdir -p ${dir $@}
 	@${CC} ${CFLAGS} -c $< -o $@ && printf "\33[2K\rCompiling CPP01 : $@" 
 	
 clean:
-	@${RM} ${OBJS_PATH}
+	@${RM} ${OBJ_PATH}
 	@echo "${GREEN}CPP01 cleaned\n${COLOUR_END}"
 
 fclean: clean

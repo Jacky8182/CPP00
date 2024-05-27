@@ -6,17 +6,18 @@
 # include <string>
 
 const int	MaxContact = 8;
+const int	SUCCESS = 1;
+const int	FAILURE = 0;
 
 class PhoneBook
 {
   public:
 	PhoneBook();
-	PhoneBook(const PhoneBook &copy);
 	~PhoneBook();
 	Contact contact[MaxContact];
+	void	PrintPhoneBook(int LastContact);
 
   private:
-	int _CurrentContact;
 };
 
 #endif

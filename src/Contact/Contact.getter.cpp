@@ -1,26 +1,26 @@
 #include "PhoneBook.class.hpp"
 
-std::string getName() const
+std::string Contact::getFirstName() const
 {
-	return this->_Name;
+	return (this->_FirstName);
 }
 
-std::string getFirstName() const
+std::string Contact::getLastName() const
 {
-	return this->_FirstName;
+	return (this->_LastName);
 }
 
-std::string getNickName() const
+std::string Contact::getNickName() const
 {
-	return this->_NickName;
+	return (this->_NickName);
 }
 
-std::string getPhoneNumber() const
+std::string Contact::getPhoneNumber() const
 {
-	return this->_PhoneNumber;
+	return (this->_PhoneNumber);
 }
 
-std::string getDarkestSecret() const
+std::string Contact::getDarkestSecret() const
 {
-	return this->_DarkestSecret;
+	return (this->_DarkestSecret);
 }
