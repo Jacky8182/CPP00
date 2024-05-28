@@ -3,8 +3,8 @@
 
 # include "Contact.class.hpp"
 # include <iostream>
+# include <sstream>
 # include <string>
-# include <cstdlib>
 
 const int	MaxContact = 8;
 const int	SUCCESS = 1;

@@ -3,12 +3,12 @@
 Contact::Contact() : _FirstName(""), _LastName(""), _NickName(""),
 	_PhoneNumber(""), _DarkestSecret("")
 {
-	std::cout << "Constructor called" << std::endl;
+
 }
 
 Contact::~Contact()
 {
-	std::cout << "Destructor called" << std::endl;
+
 }
 
 void Contact::ResetContactInfo()
@@ -22,6 +22,7 @@ void Contact::ResetContactInfo()
 }
 void Contact::PrintInfo(const int CurrentContact) const
 {
+	std::cout << "-----------------------------------------" << std::endl;
 	std::cout << "|" << CurrentContact << "        |";
 	std::cout << this->getFirstName() << "         |    ";
 	std::cout << this->getLastName() << "     |  ";

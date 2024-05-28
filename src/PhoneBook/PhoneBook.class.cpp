@@ -2,12 +2,12 @@
 
 PhoneBook::PhoneBook()
 {
-	std::cout << "Constructor called" << std::endl;
+
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "Destructor called" << std::endl;
+
 }
 void PhoneBook::PrintPhoneBook(int LastContact)
 {
