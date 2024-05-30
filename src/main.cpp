@@ -9,58 +9,54 @@ int	main(void)
 
 	std::string answer;
 	CurrentContact = 0;
-	while (1)
-	{
-		while (CurrentContact < MaxContact)
-		{
+	while (1) {
+		while (CurrentContact < MaxContact) {
 			std::cout << "Enter a command: ";
 			std::getline(std::cin, answer);
-			if (answer.compare("ADD") == 0)
-			{
-				if (repertory.contact[CurrentContact].AddContact() == FAILURE)
-				{
-					repertory.contact[CurrentContact].ResetContactInfo();
+			if (std::cin.eof() == 1) {
+				return (1);
+			}
+			if (answer.compare("ADD") == 0) {
+				if (repertory.contact[CurrentContact].AddContact() == FAILURE) {
+					return (1);
 				}
 				else
 					++CurrentContact;
 			}
-			else if (answer.compare("SEARCH") == 0)
-			{
-				if (CurrentContact == 0)
-				{
+			else if (answer.compare("SEARCH") == 0) {
+				if (CurrentContact == 0) {
 					std::cout << "Phonebook is empty" << std::endl;
 				}
-				else
-				{
+				else {
 					repertory.PrintPhoneBook(MaxContact);
 					std::cout << "Enter the contact's index you're looking for: ";
 					std::getline(std::cin, answer);
+					if (std::cin.eof() == 1) {
+						return (1);
+					}
 					std::cout << std::endl;
-					for (i = answer.begin(); i != answer.end(); ++i)
-					{
-						if (isdigit(*i) == 0)
-						{
+					for (i = answer.begin(); i != answer.end(); ++i) {
+						if (isdigit(*i) == 0) {
 							std::cout << "Error, could not find contact" << std::endl;
 							break;
 						}
 					}
-					if (i == answer.end())
-					{
+					if (i == answer.end()) {
 						std::istringstream(answer) >> to_int;
-						if (to_int < 0 || to_int > 7)
-						{
+						if (to_int < 0 || to_int > 7) {
 							std::cout << "Error, index does not exist" << std::endl;
 						}
-						else
-						{
+						else {
 							repertory.contact[to_int].PrintInfo(to_int);
 						}
 					}
 				}
 			}
-			else if (answer.compare("EXIT") == 0)
-			{
+			else if (answer.compare("EXIT") == 0) {
 				return (0);
+			}
+			else {
+				std:: cout << "Command not found" << std::endl;
 			}
 		}
 		CurrentContact = 0;

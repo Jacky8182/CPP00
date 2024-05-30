@@ -31,7 +31,6 @@ class Contact
 	void 	setPhoneNumber(const std::string &PhoneNumber);
 	void 	setDarkestSecret(const std::string &DarkestSecret);
 
-	void 	ResetContactInfo();
 	void	PrintInfo(const int CurrentContact) const;
 
 	int 	AddContact();

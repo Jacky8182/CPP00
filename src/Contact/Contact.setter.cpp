@@ -2,17 +2,32 @@
 
 void Contact::setFirstName(const std::string &FirstName)
 {
-	this->_FirstName = FirstName;
+	if (FirstName.size() > 10) {
+		this->_FirstName = FirstName.substr(0, 9);
+		this->_FirstName += '.';
+	}
+	else
+		this->_FirstName = FirstName;
 }
 
 void Contact::setLastName(const std::string &LastName)
 {
-	this->_LastName = LastName;
+	if (LastName.size() > 10) {
+		this->_LastName = LastName.substr(0, 9);
+		this->_LastName += '.';
+	}
+	else
+		this->_LastName = LastName;
 }
 
 void Contact::setNickName(const std::string &NickName)
 {
-	this->_NickName = NickName;
+	if (NickName.size() > 10) {
+		this->_NickName = NickName.substr(0, 9);
+		this->_NickName += '.';
+	}
+	else
+		this->_NickName = NickName;
 }
 
 void Contact::setPhoneNumber(const std::string &PhoneNumber)
@@ -22,5 +37,10 @@ void Contact::setPhoneNumber(const std::string &PhoneNumber)
 
 void Contact::setDarkestSecret(const std::string &DarkestSecret)
 {
-	this->_DarkestSecret = DarkestSecret;
+	if (DarkestSecret.size() > 10) {
+		this->_DarkestSecret = DarkestSecret.substr(0, 9);
+		this->_DarkestSecret += '.';
+	}
+	else
+		this->_DarkestSecret = DarkestSecret;
 }
