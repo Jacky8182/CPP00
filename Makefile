@@ -30,6 +30,8 @@ SRC_PATH		= src/
 SRC_MAIN		=	main.cpp \
 
 SRC_PHONEBOOK	=	PhoneBook/PhoneBook.class.cpp \
+					PhoneBook/PhoneBook.commands.cpp \
+					PhoneBook/PhoneBook.utils.cpp \
 
 SRC_CONTACT		=	Contact/Contact.class.cpp \
 					Contact/Contact.getter.cpp \
@@ -72,15 +74,15 @@ all: ${NAME}
 
 ${NAME}: ${OBJ} ${INCLD}
 	@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
-	@echo "${GREEN}\33[2K\nCPP01 compiled\n${COLOUR_END}"
+	@echo "${GREEN}\33[2K\nCPP00 compiled\n${COLOUR_END}"
 
 ${OBJ_PATH}%.o:	${SRC_PATH}%.cpp
 	@mkdir -p ${dir $@}
-	@${CC} ${CFLAGS} -c $< -o $@ && printf "\33[2K\rCompiling CPP01 : $@" 
+	@${CC} ${CFLAGS} -c $< -o $@ && printf "\33[2K\rCompiling CPP00 : $@" 
 	
 clean:
 	@${RM} ${OBJ_PATH}
-	@echo "${GREEN}CPP01 cleaned\n${COLOUR_END}"
+	@echo "${GREEN}CPP00 cleaned\n${COLOUR_END}"
 
 fclean: clean
 	@${RM} ${NAME}

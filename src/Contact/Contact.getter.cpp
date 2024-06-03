@@ -2,25 +2,25 @@
 
 std::string Contact::getFirstName() const
 {
-	return (this->_FirstName);
+	return (_FirstName);
 }
 
 std::string Contact::getLastName() const
 {
-	return (this->_LastName);
+	return (_LastName);
 }
 
 std::string Contact::getNickName() const
 {
-	return (this->_NickName);
+	return (_NickName);
 }
 
 std::string Contact::getPhoneNumber() const
 {
-	return (this->_PhoneNumber);
+	return (_PhoneNumber);
 }
 
 std::string Contact::getDarkestSecret() const
 {
-	return (this->_DarkestSecret);
+	return (_DarkestSecret);
 }

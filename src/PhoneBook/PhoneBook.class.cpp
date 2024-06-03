@@ -1,6 +1,6 @@
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook(): CurrentContact(0)
 {
 }
 
@@ -18,22 +18,22 @@ void PhoneBook::PrintPhoneBook(int LastContact)
 	std::cout << "--------------------------------------------" << std::endl;
 	while (CurrentContact < LastContact) {
 		std::cout << "|" << CurrentContact << "        |";
-		std::cout << this->contact[CurrentContact].getFirstName();
-		len = this->contact[CurrentContact].getFirstName().size();
+		std::cout << contact[CurrentContact].getFirstName();
+		len = contact[CurrentContact].getFirstName().size();
 		while (len < 10) {
 			std::cout << " ";
 			++len;
 		}
 		std::cout << "|";
-		std::cout << this->contact[CurrentContact].getLastName();
-		len = this->contact[CurrentContact].getLastName().size();
+		std::cout << contact[CurrentContact].getLastName();
+		len = contact[CurrentContact].getLastName().size();
 		while (len < 10) {
 			std::cout << " ";
 			++len;
 		}
 		std::cout << "|";
-		std::cout << this->contact[CurrentContact].getNickName();
-		len = this->contact[CurrentContact].getNickName().size();
+		std::cout << contact[CurrentContact].getNickName();
+		len = contact[CurrentContact].getNickName().size();
 		while (len < 10) {
 			std::cout << " ";
 			++len;
@@ -42,4 +42,13 @@ void PhoneBook::PrintPhoneBook(int LastContact)
 		std::cout << "--------------------------------------------" << std::endl;
 		++CurrentContact;
 	}
+}
+int PhoneBook::GetCurrentContact() const
+{
+	return CurrentContact;
+}
+
+void PhoneBook::ResetIndex()
+{
+	CurrentContact = 0;
 }
